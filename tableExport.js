@@ -282,7 +282,12 @@ THE SOFTWARE.*/
 					html2canvas($(el), {
 						onrendered: function(canvas) {										
 							var img = canvas.toDataURL("image/png");
-							window.open(img);
+							//window.open(img);
+							var link = document.createElement('a');
+							link.href = img;
+							link.download = 'resultados.png';
+							document.body.appendChild(link);
+							link.click();
 							
 							
 						}
